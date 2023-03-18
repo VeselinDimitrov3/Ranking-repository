@@ -19,6 +19,9 @@ public class NationalTeams {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @ManyToOne
+    private Clubs clubs;
+
     @Column
     private String team;
 
@@ -29,7 +32,7 @@ public class NationalTeams {
     private Integer previousPoints;
 
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "national teams")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "nationalTeams")
     private List<Clubs> clubsList = new ArrayList<>();
 
 
