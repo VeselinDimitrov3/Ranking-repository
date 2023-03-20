@@ -51,5 +51,11 @@ public class ApplicationExceptionHandlerException {
     String handlerRuntimeException(RuntimeException ex) {
         return ex.getMessage();
     }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(RecordNotFoundException.class)
+    String handlerRecordNotFoundException(RecordNotFoundException ex) {
+        return ex.getMessage();
+    }
     
 }
