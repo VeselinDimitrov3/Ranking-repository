@@ -3,7 +3,9 @@ package com.example.Data.convertor;
 import com.example.Data.dto.NationalTeamRequest;
 import com.example.Data.dto.NationalTeamResponse;
 import com.example.Data.entity.NationalTeams;
+import org.springframework.stereotype.Component;
 
+@Component
 public class NationalTeamConvertor {
 
     public NationalTeams toRequest(NationalTeamRequest nationalTeamRequest) {
