@@ -29,7 +29,7 @@ public class NationalTeamController {
                 .body(nationalTeamService.addNationalTeam(nationalTeamRequest));
     }
 
-    @GetMapping("/get_nationalTeam")
+    @GetMapping("/{id}")
     public ResponseEntity<NationalTeamResponse> findByRankingPlace (@PathVariable Long id) {
         return ResponseEntity
                 .status(HttpStatus.FOUND)
@@ -43,13 +43,12 @@ public class NationalTeamController {
                 .body(nationalTeamService.updateNationalTeam(nationalTeamUpdate));
     }
 
-    @DeleteMapping("/delete")
+    @DeleteMapping("/{id}/delete")
     public ResponseEntity<String> deleteNationalTeam (@PathVariable Long id) {
         nationalTeamService.deleteNationalTeam(id);
         return ResponseEntity
                 .status(HttpStatus.ACCEPTED)
-                .body("Club has been successfully deleted");
-
+                .body("National Team has been successfully deleted");
     }
 
 }
