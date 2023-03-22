@@ -25,7 +25,7 @@ public class Clubs {
     @Column
     private String league;
     @Column
-    private Integer SPI;
+    private String SPI;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "clubs")
     private List<NationalTeams> nationalTeamsList = new ArrayList<>();

@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/car_industry?createDatabaseIfNotExist=true
+    url: jdbc:mysql://localhost:3306/ranking_system?createDatabaseIfNotExist=true
     username: root
     password:
   jpa:

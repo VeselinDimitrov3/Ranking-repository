@@ -5,6 +5,7 @@ import com.example.Data.dto.ClubRequest;
 import com.example.Data.dto.ClubResponse;
 import com.example.Data.dto.ClubUpdate;
 import com.example.Data.entity.Clubs;
+import com.example.Data.exception.ClubDoublingException;
 import com.example.Data.impl.ClubServiceImpl;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -27,13 +28,13 @@ public class ClubController {
     private ClubConvertor clubConvertor;
 
     @PostMapping(path = "/add")
-    public ResponseEntity<ClubResponse> addClub (@RequestBody @Valid ClubRequest clubRequest) {
+    public ResponseEntity<ClubResponse> addClub (@RequestBody @Valid ClubRequest newClub) throws ClubDoublingException{
         return ResponseEntity
                 .status(HttpStatus.CREATED)
-                .body(clubService.addClub(clubRequest));
+                .body(clubService.addClub(newClub));
     }
 
-    @GetMapping("/get_club")
+    @GetMapping("/{id}")
     public ResponseEntity<ClubResponse> findByRankingPlace(@PathVariable Long id) {
         return ResponseEntity
                 .status(HttpStatus.FOUND)
@@ -47,8 +48,8 @@ public class ClubController {
                 .body(clubService.updateClub(clubUpdate));
     }
 
-    @DeleteMapping("/delete")
-    public ResponseEntity<String> delete (@PathVariable Long id) {
+    @DeleteMapping("/{id}/delete")
+    public ResponseEntity<String> deleteClub(@PathVariable Long id) {
         clubService.deleteClub(id);
         return ResponseEntity
                 .status(HttpStatus.ACCEPTED)

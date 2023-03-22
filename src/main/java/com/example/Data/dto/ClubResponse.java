@@ -10,9 +10,8 @@ import org.springframework.stereotype.Component;
 @Setter
 @Builder
 public class ClubResponse {
-    private Long id;
     private String FC;
     private String league;
-    private Integer SPI;
+    private String SPI;
 
 }

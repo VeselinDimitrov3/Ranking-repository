@@ -11,7 +11,6 @@ import java.util.Map;
 
 @RestControllerAdvice
 public class ApplicationExceptionHandlerException {
-
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     Map<String, String> handleMethodArgNotValidException(MethodArgumentNotValidException ex) {
@@ -21,35 +20,15 @@ public class ApplicationExceptionHandlerException {
         });
         return handledErrors;
     }
-
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(ClubNotFoundException.class)
-    String handleClubNotFoundException (ClubNotFoundException ex) {
-        return ex.getMessage();
-    }
-
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(NationalTeamNotFoundException.class)
-    String handleNationalTeamNotFoundException (NationalTeamNotFoundException ex) {
-        return ex.getMessage();
-    }
-
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(ClubDoublingException.class)
-    String handleClubDoublingException (ClubDoublingException ex) {
-        return "This FC is already in the list! ";
+    String handleEmailDoublingException(ClubDoublingException ex) {
+        return "Club already exists!";
     }
-
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(NationalTeamDoublingException.class)
-    String handleNationalTeamDoublingException (NationalTeamDoublingException ex) {
-        return "This national team is already in the list!";
-    }
-
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    @ExceptionHandler(RuntimeException.class)
-    String handlerRuntimeException(RuntimeException ex) {
-        return ex.getMessage();
+    String handlePhoneNumberDoublingException(NationalTeamDoublingException ex) {
+        return "National team already exists!";
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
@@ -57,5 +36,15 @@ public class ApplicationExceptionHandlerException {
     String handlerRecordNotFoundException(RecordNotFoundException ex) {
         return ex.getMessage();
     }
-    
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(ClubNotFoundException.class)
+    String handlerCarNotFoundException(ClubNotFoundException ex) {
+        return ex.getMessage();
+    }
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(NationalTeamNotFoundException.class)
+    String handlerReservationNotFoundException(NationalTeamNotFoundException ex) {
+        return ex.getMessage();
+    }
+
 }

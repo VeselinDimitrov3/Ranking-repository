@@ -3,6 +3,7 @@ package com.example.Data.controller;
 import com.example.Data.convertor.ClubConvertor;
 import com.example.Data.convertor.NationalTeamConvertor;
 import com.example.Data.dto.*;
+import com.example.Data.exception.NationalTeamDoublingException;
 import com.example.Data.impl.ClubServiceImpl;
 import com.example.Data.impl.NationalTeamServiceImpl;
 import jakarta.validation.Valid;
@@ -23,7 +24,7 @@ public class NationalTeamController {
 
 
     @PostMapping(path = "/add")
-    public ResponseEntity<NationalTeamResponse> addNationalTeam (@RequestBody @Valid NationalTeamRequest nationalTeamRequest) {
+    public ResponseEntity<NationalTeamResponse> addNationalTeam (@RequestBody @Valid NationalTeamRequest nationalTeamRequest) throws NationalTeamDoublingException {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(nationalTeamService.addNationalTeam(nationalTeamRequest));

@@ -10,9 +10,8 @@ import org.springframework.stereotype.Component;
 @Setter
 @Builder
 public class NationalTeamResponse {
-    private Long id;
     private String team;
-    private Integer totalPoints;
-    private Integer previousPoints;
+    private String totalPoints;
+    private String previousPoints;
 
 }

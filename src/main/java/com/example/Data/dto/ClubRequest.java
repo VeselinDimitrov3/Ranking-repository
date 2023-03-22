@@ -1,16 +1,17 @@
 package com.example.Data.dto;
 
 import lombok.*;
+import org.springframework.stereotype.Component;
 
-@AllArgsConstructor
+@Component
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder
 @Getter
 @Setter
 public class ClubRequest {
-    private Long id;
     private String FC;
     private String league;
-    private Integer SPI;
+    private String SPI;
 
 }

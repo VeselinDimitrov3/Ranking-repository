@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 public class ClubConvertor {
     public Clubs toRequest(ClubRequest clubRequest) {
         return Clubs.builder()
-                .id(clubRequest.getId())
                 .FC(clubRequest.getFC())
                 .league(clubRequest.getLeague())
                 .SPI(clubRequest.getSPI())
@@ -16,7 +15,6 @@ public class ClubConvertor {
     }
     public ClubResponse toResponse (Clubs clubs) {
         return ClubResponse.builder()
-                .id(clubs.getId())
                 .FC(clubs.getFC())
                 .league(clubs.getLeague())
                 .SPI(clubs.getSPI())

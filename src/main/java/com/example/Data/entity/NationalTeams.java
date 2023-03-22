@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "national teams")
+@Table(name = "national_teams")
 public class NationalTeams {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,10 +26,10 @@ public class NationalTeams {
     private String team;
 
     @Column
-    private Integer totalPoints;
+    private String totalPoints;
 
     @Column
-    private Integer previousPoints;
+    private String previousPoints;
 
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "nationalTeams")
