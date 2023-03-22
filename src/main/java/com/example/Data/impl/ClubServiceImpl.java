@@ -40,9 +40,6 @@ public class ClubServiceImpl implements ClubService {
 
     }
 
-//        Clubs newClub = clubRepository.save(clubConvertor.toRequest(clubRequest));
-//        return clubConvertor.toResponse(newClub);
-
 
 
     @Override
