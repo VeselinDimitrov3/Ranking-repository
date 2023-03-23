@@ -14,6 +14,5 @@ public class ClubRequest {
     private String FC;
     private String league;
     private String SPI;
-    private Clubs club;
 
 }
