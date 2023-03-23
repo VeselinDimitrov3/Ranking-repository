@@ -9,7 +9,7 @@ import com.example.Data.exception.RecordNotFoundException;
 
 public interface ClubService {
 
-    ClubResponse addClub (ClubRequest clubRequest) throws ClubDoublingException;
+    ClubResponse addClub (ClubRequest clubRequest) throws ClubDoublingException, RecordNotFoundException;
 
     Clubs findByRankingPlace(Long id);
 

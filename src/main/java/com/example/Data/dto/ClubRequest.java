@@ -1,5 +1,6 @@
 package com.example.Data.dto;
 
+import com.example.Data.entity.Clubs;
 import lombok.*;
 import org.springframework.stereotype.Component;
 
@@ -13,5 +14,6 @@ public class ClubRequest {
     private String FC;
     private String league;
     private String SPI;
+    private Clubs club;
 
 }

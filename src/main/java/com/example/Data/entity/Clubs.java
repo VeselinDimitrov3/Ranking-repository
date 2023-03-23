@@ -4,7 +4,9 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -28,6 +30,6 @@ public class Clubs {
     private String SPI;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "clubs")
-    private List<NationalTeams> nationalTeamsList = new ArrayList<>();
+    private Set<NationalTeams> nationalTeamsList = new HashSet<>();
 
 }
